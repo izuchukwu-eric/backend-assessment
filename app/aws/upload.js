@@ -53,6 +53,9 @@ const upload = async (req, res) => {
       }
     }
 
+    // uncomment this line to remove the temporary directory
+    // fs.rmdirSync(extractDir, { recursive: true });
+
     return res.status(200).json({
       fileCount: files.length,
       largestFile,
