@@ -33,7 +33,7 @@ Simply fork this repo and commit your solution to your forked repo. Then send us
 - Make sure to gracefully handle error scenarios
 - You can use whatever libraries you like
 
-## Added multer middleware to handle uploads
+## Added multer middleware in `/app/aws/index.js` to handle uploads
 
 I used ```multer``` middleware to handle file uploads, instead of manually reading and attaching the file to the request using ```fs```. 
 The ```uploadMulterMiddleware.single('uploaded-zip')``` line specifies that we expect a single file with the name ```uploaded-zip``` to be uploaded using the ```multer``` middleware
