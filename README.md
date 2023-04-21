@@ -35,29 +35,29 @@ Simply fork this repo and commit your solution to your forked repo. Then send us
 
 ## Added multer middleware to handle uploads
 
-I used multer middleware to handle file uploads, instead of manually reading and attaching the file to the request using fs. 
+I used multer middleware to handle file uploads, instead of manually reading and attaching the file to the request using ```fs```. 
 The ```uploadMulterMiddleware.single('uploaded-zip')``` line specifies that we expect a single file with the name uploaded-zip to be uploaded using the multer middleware
 
 ## Update made to the Upload endpoint
 
-upload API, we use the unzipper library to extract the uploaded zip file to a temporary directory. 
-We then use the fs module to walk through the directory tree and find all the files in the extracted zip archive. 
-We then loop through all the files and find the largest file by comparing their sizes.
+Upload API, we use the ```unzipper``` library to extract the uploaded zip file to a temporary directory. 
+We then use the ```fs``` module to walk through the directory tree and find all the files in the extracted zip archive. 
+I then loop through all the files and find the largest file by comparing their sizes.
 
 I also added an additional error check to make sure that at least one file was found in the extracted zip archive. 
-If no files are found, we throw an error and return a 400 response with an appropriate error message.
+If no files are found, I throw an error and return a 400 response with an appropriate error message.
 
-We also handle any errors that occur during the unzipping and extracting process and return a 500 response if an error occurs.
+I also handle any errors that occur during the unzipping and extracting process and return a 500 response if an error occurs.
 
 ## Added a simple test file for the Upload endpoint using the example.zip file
 
-I used the chai assertion library with the chai-http plugin to make HTTP requests 
+I used the ```chai``` assertion library with the ```chai-http``` plugin to make HTTP requests 
 to the app instance where the upload implementation is located.
 
 The first test case checks that the API returns an error when no zip file is uploaded. 
 The second test case checks that the API returns an error when no email is provided. 
-The third test case checks that the API successfully uploads and extracts a zip file, and returns the expected response with the correct fileCount, largestFile, largestFileSize, and email properties.
+The third test case checks that the API successfully uploads and extracts a zip file, and returns the expected response with the correct ```fileCount```x`x, ```largestFile```, ```largestFileSize```, and ```email``` properties.
 
 I use the attach method to attach the file to the request, 
-and specify the name of the file input field as uploaded-zip, 
+and specify the name of the file input field as ```uploaded-zip```, 
 which matches the name used in the multer middleware.
