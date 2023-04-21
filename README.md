@@ -35,8 +35,8 @@ Simply fork this repo and commit your solution to your forked repo. Then send us
 
 ## Added multer middleware to handle uploads
 
-I used multer middleware to handle file uploads, instead of manually reading and attaching the file to the request using ```fs```. 
-The ```uploadMulterMiddleware.single('uploaded-zip')``` line specifies that we expect a single file with the name uploaded-zip to be uploaded using the multer middleware
+I used ```multer``` middleware to handle file uploads, instead of manually reading and attaching the file to the request using ```fs```. 
+The ```uploadMulterMiddleware.single('uploaded-zip')``` line specifies that we expect a single file with the name ```uploaded-zip``` to be uploaded using the ```multer``` middleware
 
 ## Update made to the Upload endpoint
 
@@ -56,8 +56,8 @@ to the app instance where the upload implementation is located.
 
 The first test case checks that the API returns an error when no zip file is uploaded. 
 The second test case checks that the API returns an error when no email is provided. 
-The third test case checks that the API successfully uploads and extracts a zip file, and returns the expected response with the correct ```fileCount```x`x, ```largestFile```, ```largestFileSize```, and ```email``` properties.
+The third test case checks that the API successfully uploads and extracts a zip file, and returns the expected response with the correct ```fileCount```, ```largestFile```, ```largestFileSize```, and ```email``` properties.
 
-I use the attach method to attach the file to the request, 
+I use the ```attach``` method to attach the file to the request, 
 and specify the name of the file input field as ```uploaded-zip```, 
-which matches the name used in the multer middleware.
+which matches the name used in the ```multer``` middleware.
