@@ -1,12 +1,8 @@
 'use strict'
 
-
-
 const server = require('./server')
 
 let pid
-
-
 
 function start () {
   server.start()

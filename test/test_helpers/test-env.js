@@ -2,7 +2,7 @@
 const path = require('path')
 const envfile = require('envfile')
 
-const TEST_ENV = envfile.parseFileSync(path.join(__dirname, '../test.env'))
+const TEST_ENV = envfile.stringify(path.join(__dirname, '../test.env'))
 
 if (TEST_ENV) {
   Object.keys(TEST_ENV).forEach(property => {

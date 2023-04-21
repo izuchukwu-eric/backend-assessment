@@ -1,5 +1,5 @@
-const { AsyncLocalStorage } = require('async_hooks');
+const { AsyncLocalStorage } = require('async_hooks')
 
-const context = new AsyncLocalStorage();
+const context = new AsyncLocalStorage()
 
-module.exports = context;
+module.exports = context

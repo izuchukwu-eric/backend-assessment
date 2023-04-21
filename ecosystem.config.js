@@ -3,7 +3,7 @@ module.exports = {
     name: 'api',
     script: 'dist/start.js',
     instances: 1, // runs 1 instance of application
-    exec_mode: "cluster",
+    exec_mode: 'cluster',
     env: { 'NODE_ENV': 'development' },
     env_production: { 'NODE_ENV': 'production' }
   },
@@ -11,8 +11,8 @@ module.exports = {
     name: 'worker',
     script: 'dist/start.js',
     instances: 1, // runs 1 instance of application
-    exec_mode: "cluster",
+    exec_mode: 'cluster',
     env: { 'NODE_ENV': 'development' },
-    env_production: { 'NODE_ENV': 'production' },
-  }],
-};
+    env_production: { 'NODE_ENV': 'production' }
+  }]
+}
