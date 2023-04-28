@@ -1,6 +1,6 @@
 const fs = require('fs')
-const unzipper = require('unzipper')
 const path = require('path')
+const decompress = require('decompress')
 
 const upload = async (req, res) => {
   try {
@@ -17,14 +17,9 @@ const upload = async (req, res) => {
     const extractDir = path.join(__dirname, '/extracted/')
     fs.mkdirSync(extractDir, { recursive: true })
 
-    await fs.createReadStream(req.file.filename)
-      .on('error', (err) => {
-        console.error(err)
-        return res.status(500).json({ error: 'Error reading zip file' })
-      })
-      .pipe(unzipper.Extract({ path: extractDir }))
-      .promise()
-
+    // use decompress module to extract files
+    await decompress(req.file.path, extractDir)
+    
     const files = []
     const walk = (dir) => {
       const filesInDir = fs.readdirSync(dir)
